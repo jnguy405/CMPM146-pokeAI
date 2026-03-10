@@ -4,6 +4,8 @@ import struct
 import sys
 import time
 
+from ai_agent import choose_action
+
 # Make paths robust so it can be run from root or external_ai dir
 _SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 _PROJECT_DIR = os.path.dirname(_SCRIPT_DIR)
@@ -703,7 +705,8 @@ def main():
                 if info.get("battle_state"):
                     display_battle_state(info["battle_state"])
 
-                action, index, target = prompt_action(info)
+                # Delegate decision-making to external AI agent module
+                action, index, target = choose_action(info)
 
                 # Format: DECISION <action> <index> <target>
                 decision_str = f"DECISION {action} {index} {target}"
