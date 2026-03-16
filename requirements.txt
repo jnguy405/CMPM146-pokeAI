@@ -1,1 +1,2 @@
-python-dotenv
+google-genai==1.67.0
+python-dotenv==1.2.2
